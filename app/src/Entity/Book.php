@@ -34,8 +34,10 @@ class Book
      */
     private $authors;
 
-    public function __construct()
+    public function __construct(string $title, int $year)
     {
+        $this->title = $title;
+        $this->year = $year;
         $this->authors = new ArrayCollection();
     }
 
