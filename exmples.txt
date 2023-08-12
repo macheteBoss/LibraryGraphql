@@ -1,0 +1,94 @@
+//// Примеры запросов / Examples
+
+<  QUERY  >
+
+// Get all books
+
+query books {
+  books {
+    id
+    title
+    year
+    authors {
+      id,
+      name,
+      countBooks
+    }
+  }
+}
+
+// Get book by id
+
+query book {
+  book(id:1) {
+    id
+    title
+    year
+    authors {
+      id,
+      name,
+      countBooks
+    }
+  }
+}
+
+
+// Get all authors
+
+query authors {
+  authors {
+    id
+    name
+    countBooks
+  }
+}
+
+// Get author by id
+
+query author {
+  author(id:1) {
+    id
+    title
+    year
+    authors {
+      id,
+      name,
+      countBooks
+    }
+  }
+}
+
+
+<  MUTATION  >
+
+// Create Book
+
+mutation CreateBook {
+  createBook(book: {title: "New book", year: 2023, authors: [1, 2]}) {
+    id,
+    title
+    authors {
+      id,
+      name
+    }
+  }
+}
+
+// Update Book
+
+mutation UpdateBook {
+  updateBook(id: 6, book: {title: "update book", authors: [3, 5]}) {
+    id,
+    title
+    authors {
+      id,
+      name
+    }
+  }
+}
+
+// Delete Author
+
+mutation DeleteAuthor {
+  deleteAuthor(id: 5)
+}
