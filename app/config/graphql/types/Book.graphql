@@ -4,3 +4,19 @@ type Book {
     year: Int!
     authors: [Author!]!
 }
+
+input CreateBook {
+    title: String!
+    year: Int!
+    authors: [ID!]!
+}
+
+input UpdateBook {
+    title: String
+    year: Int
+    authors: [ID!]
+}
+
+input DeleteBook {
+    id: Int!
+}

@@ -2,3 +2,15 @@ type Author {
     id: ID!
     name: String!
 }
+
+input CreateAuthor {
+    name: String!
+}
+
+input UpdateAuthor {
+    name: String!
+}
+
+input DeleteAuthor {
+    id: Int!
+}
