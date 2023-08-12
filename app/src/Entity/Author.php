@@ -22,9 +22,15 @@ class Author
      */
     private $name;
 
-    public function __construct(string $name)
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $countBooks;
+
+    public function __construct(string $name, int $countBooks = 0)
     {
         $this->name = $name;
+        $this->countBooks = $countBooks;
     }
 
     public function getId(): ?int
@@ -40,6 +46,18 @@ class Author
     public function setName(string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    public function getCountBooks(): ?int
+    {
+        return $this->countBooks;
+    }
+
+    public function setCountBooks(int $countBooks): self
+    {
+        $this->countBooks = $countBooks;
 
         return $this;
     }

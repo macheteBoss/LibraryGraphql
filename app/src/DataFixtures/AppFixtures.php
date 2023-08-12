@@ -12,7 +12,7 @@ class AppFixtures extends Fixture
     public function load(ObjectManager $manager): void
     {
         for ($i = 1; $i <= 5; $i++) {
-            $author = new Author('Author' . $i);
+            $author = new Author('Author' . $i, $i);
             $manager->persist($author);
         }
 
@@ -22,7 +22,7 @@ class AppFixtures extends Fixture
 
         for ($i = 1; $i <= 5; $i++) {
             $book = new Book('Book' . $i, rand(1000, 2023));
-            for ($g = $i; $g < 5; $g++) {
+            for ($g = $i; $g <= 5; $g++) {
                 $book->addAuthor(
                     $authorRepository->findOneBy(['name' => 'Author' . $g])
                 );
